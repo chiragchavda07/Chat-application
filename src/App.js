@@ -2,7 +2,7 @@ import "./App.css";
 import io from "socket.io-client";
 import { useState } from "react";
 import Chat from "./components/Chat";
-
+import "./temp.css";
 // const socket = io.connect("http://192.168.101.161:3001");
 const socket = io.connect("https://chatapp-chiragchavda.onrender.com");
 
@@ -19,30 +19,32 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {!showChat ? (
-        <div className="joinChatContainer">
-          <h3>Chatapp</h3>
-          <input
-            type="text"
-            placeholder="Your name..."
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="Chat ID..."
-            onChange={(event) => {
-              setRoom(event.target.value);
-            }}
-          />
-          <button onClick={joinRoom}>Join A chat</button>
-        </div>
-      ) : (
-        <Chat socket={socket} username={username} room={room} />
-      )}
+    <div >  <img src="https://e0.pxfuel.com/wallpapers/872/348/desktop-wallpaper-jay-hanuman-jay-bajrangbali.jpg"></img>
     </div>
+    // <div className="App">
+    //   {!showChat ? (
+    //     <div className="joinChatContainer">
+    //       <h3>Chatapp</h3>
+    //       <input
+    //         type="text"
+    //         placeholder="Your name..."
+    //         onChange={(event) => {
+    //           setUsername(event.target.value);
+    //         }}
+    //       />
+    //       <input
+    //         type="text"
+    //         placeholder="Chat ID..."
+    //         onChange={(event) => {
+    //           setRoom(event.target.value);
+    //         }}
+    //       />
+    //       <button onClick={joinRoom}>Join A chat</button>
+    //     </div>
+    //   ) : (
+    //     <Chat socket={socket} username={username} room={room} />
+    //   )}
+    // </div>
   );
 }
 

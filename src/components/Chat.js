@@ -39,6 +39,9 @@ function Chat({ socket, username, room }) {
     socket.emit("typing",messageData);
   }
   useEffect(() => {
+    // socket.on("init_msg",(msg)=>{
+    //   setMessageList((list) => [...list, msg]);
+    // })
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
