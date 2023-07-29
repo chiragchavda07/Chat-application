@@ -19,33 +19,31 @@ function App() {
   };
 
   return (
-    <div >  <img src="https://e0.pxfuel.com/wallpapers/872/348/desktop-wallpaper-jay-hanuman-jay-bajrangbali.jpg"></img>
+    <div className="App">
+      {!showChat ? (
+        <div className="joinChatContainer">
+          <h3>Chatapp</h3>
+          <input
+            type="text"
+            placeholder="Your name..."
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Chat ID..."
+            onChange={(event) => {
+              setRoom(event.target.value);
+            }}
+          />
+          <button onClick={joinRoom}>Join A chat</button>
+        </div>
+      ) : (
+        <Chat socket={socket} username={username} room={room} />
+      )}
     </div>
-    // <div className="App">
-    //   {!showChat ? (
-    //     <div className="joinChatContainer">
-    //       <h3>Chatapp</h3>
-    //       <input
-    //         type="text"
-    //         placeholder="Your name..."
-    //         onChange={(event) => {
-    //           setUsername(event.target.value);
-    //         }}
-    //       />
-    //       <input
-    //         type="text"
-    //         placeholder="Chat ID..."
-    //         onChange={(event) => {
-    //           setRoom(event.target.value);
-    //         }}
-    //       />
-    //       <button onClick={joinRoom}>Join A chat</button>
-    //     </div>
-    //   ) : (
-    //     <Chat socket={socket} username={username} room={room} />
-    //   )}
-    // </div>
-  );
+  );  
 }
 
 export default App;
